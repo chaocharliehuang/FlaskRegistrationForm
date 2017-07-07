@@ -1,0 +1,19 @@
+<html>
+    <body>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action='/process_form' method='post'>
+            Email: <input type="text" name="email" value={{session['email']}}><br><br>
+            First Name: <input type="text" name="first_name" value={{session['first_name']}}><br><br>
+            Last Name: <input type="text" name="last_name" value={{session['last_name']}}><br><br>
+            Password: <input type="password" name="password" value={{session['password']}}><br><br>
+            Confirm Password: <input type="password" name="confirm_pw" value={{session['confirm_pw']}}><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
